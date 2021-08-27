@@ -21,7 +21,7 @@ public class Mensagem {
     private boolean lida;
 
     @ManyToOne
-    @JoinColumn(name = "email")
+    @JoinColumn(name = "e-mail")
     private Contato contato;
 
     public Contato getContato() {
