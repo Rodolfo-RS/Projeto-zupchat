@@ -3,6 +3,9 @@ package br.com.zup.ZupChat.models;
 
 
 import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
+import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "mensagens")
@@ -14,14 +17,20 @@ public class Mensagem {
 
     private String mensagem;
 
+    @NotNull(message = "Valor não pode ser nulo")
+    @NotBlank(message = "Valor não pode ser em branco")
     private String destino;
 
+    @NotNull(message = "Valor não pode ser nulo")
+    @NotBlank(message = "Valor não pode ser em branco")
     private String origem;
 
     private boolean lida;
 
+    private LocalDateTime dataLeitura;
+
     @ManyToOne
-    @JoinColumn(name = "e-mail")
+    @JoinColumn(name = "email")
     private Contato contato;
 
     public Contato getContato() {
@@ -70,5 +79,13 @@ public class Mensagem {
 
     public void setLida(boolean lida) {
         this.lida = lida;
+    }
+
+    public LocalDateTime getDataLeitura() {
+        return dataLeitura;
+    }
+
+    public void setDataLeitura(LocalDateTime dataDataLeitura) {
+        this.dataLeitura = dataDataLeitura;
     }
 }
