@@ -5,6 +5,7 @@ import javax.persistence.*;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
+import javax.validation.constraints.Size;
 import java.util.Set;
 
 @Entity
@@ -16,12 +17,12 @@ public class Contato {
     @Email(message = "Email inválido")
     private String email;
 
-    @Min(value = 2, message = "Valor não permitido")
-    @Max(value = 20, message = "Valor não permitido")
+    @Size(min = 2, message = "Valor não permitido")
+    @Size(max = 20, message = "Valor não permitido")
     private String nome;
 
-    @Min(value = 5, message = "Valor não permitido")
-    @Max(value = 20, message = "Valor não permitido")
+    @Size(min = 5, message = "Valor não permitido")
+    @Size(max = 20, message = "Valor não permitido")
     private String sobrenome;
     private String telefone;
     private String cargo;
